@@ -33,7 +33,7 @@ You can use webview activity easily.
 The following is a sample code
 
 ```
-SimpleWebView simpleWebView = new SimpleWebView(this, "https://github.com/ksugawara61");
+SimpleWebView simpleWebView = new SimpleWebView(context, "https://github.com/ksugawara61");
 simpleWebView.setTitle("ksugawara61");
 simpleWebView.setLoadText("Now Loading...");
 simpleWebView.startWebViewActivity();
