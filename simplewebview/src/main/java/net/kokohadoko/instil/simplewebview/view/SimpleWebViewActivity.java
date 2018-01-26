@@ -8,6 +8,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.webkit.WebView;
 
+import net.kokohadoko.instil.simplewebview.Constant;
 import net.kokohadoko.instil.simplewebview.R;
 
 /**
@@ -20,6 +21,7 @@ public class SimpleWebViewActivity extends AppCompatActivity {
 
     private String url;
     private String title;
+    private String loadText;
 
     /**
      * onCreate
@@ -32,13 +34,14 @@ public class SimpleWebViewActivity extends AppCompatActivity {
         setContentView(R.layout.activity_simplewebview);
 
         Intent intent = getIntent();
-        url   = intent.getStringExtra("url");
-        title = intent.getStringExtra("title");
+        url      = intent.getStringExtra(Constant.URL_KEY);
+        title    = intent.getStringExtra(Constant.TITLE_KEY);
+        loadText = intent.getStringExtra(Constant.LOADING_KEY);
 
         // load webview
         WebView webView = findViewById(R.id.web_view);
         webView.getSettings().setJavaScriptEnabled(true);
-        webView.setWebViewClient(new ProgressDialogWebViewClient(this, "this is test"));
+        webView.setWebViewClient(new ProgressDialogWebViewClient(this, loadText));
         webView.loadUrl(url);
     }
 

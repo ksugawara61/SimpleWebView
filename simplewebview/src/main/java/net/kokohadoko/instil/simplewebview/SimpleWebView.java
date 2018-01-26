@@ -16,7 +16,7 @@ public class SimpleWebView {
     private Context context = null;
     private String url = null;
     private String title = "";
-    private String loadText = "Now loading...";
+    private String loadText = Constant.DEFAULT_LOADING_TEXT;
 
     /**
      * constructer
@@ -30,15 +30,17 @@ public class SimpleWebView {
     }
 
     /**
-     * constructer
-     *
-     * @param url display url using webview
-     * @param title title of webview
+     * menubar title setting
      */
-    public SimpleWebView(Context context, String url, String title) {
-        this.context = context;
-        this.url = url;
+    public void setTitle(String title) {
         this.title = title;
+    }
+
+    /**
+     * loading dialog text setting
+     */
+    public void setLoadText(String loadText) {
+        this.loadText = loadText;
     }
 
     /**
@@ -46,8 +48,9 @@ public class SimpleWebView {
      */
     public void startWebViewActivity() {
         Intent intent = new Intent(context, SimpleWebViewActivity.class);
-        intent.putExtra("title", title);
-        intent.putExtra("url", url);
+        intent.putExtra(Constant.URL_KEY, url);
+        intent.putExtra(Constant.TITLE_KEY, title);
+        intent.putExtra(Constant.LOADING_KEY, loadText);
         context.startActivity(intent);
     }
 

@@ -13,6 +13,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         SimpleWebView simpleWebView = new SimpleWebView(this, "https://www.facebook.com/instil.kokohadoko.net/");
+        simpleWebView.setTitle("this is test");
+        simpleWebView.setLoadText("読み込み中");
         simpleWebView.startWebViewActivity();
     }
 }
